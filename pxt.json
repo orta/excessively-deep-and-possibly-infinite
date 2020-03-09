@@ -15,7 +15,7 @@
     },
     "palette": [
         "#000000",
-        "#213b25",
+        "#ff3333",
         "#3a604a",
         "#4f7754",
         "#a19f7c",
@@ -31,5 +31,5 @@
         "#7c94a1",
         "#a0b9ba"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
