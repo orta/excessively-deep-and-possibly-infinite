@@ -62,22 +62,22 @@ d d d d d d d d d d d d d d d d
 `
     //% blockIdentity=images._tile
     export const tile4 = img`
-7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
-a a a a a a a a a a a a a a a a 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+f f f f f f f f f f f f f f f f 
+e e 9 9 e 9 9 e e e e e e e e e 
+a e 9 9 e 9 9 e 9 9 9 9 9 9 9 9 
+a a e e a e e a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+b b b b b b b b b b b b b b b 8 
+8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
 `
     //% blockIdentity=images._tile
     export const tile5 = img`
@@ -124,17 +124,112 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 b b b b b b b b b b b b b b b b 
-8 b c c c c c c c c c c c c c c 
-8 b f e c c f f f e c c f f f e 
-8 b d f c c f e f f c c f e f f 
-8 b d f c c e f f f c c e f f f 
-8 b d d c c f f f f c c f f f f 
-8 b d d c c b b b b c c b b b b 
-8 b f b c c c c c c c c c c c c 
-8 b f b c c c c c c c c c c c c 
-8 b b c c c c c c c c c c c c c 
-8 b c c c c c c c c c c c c c c 
-8 b c c c c c c c c c c c c c c 
+a b c c c c c c c c c c c c c c 
+a b f e c c f f f e c c f f f e 
+a b d f c c f e f f c c f e f f 
+a b d f c c e f f f c c e f f f 
+a b d d c c f f f f c c f f f f 
+a b d d c c b b b b c c b b b b 
+a b f b c c c c c c c c c c c c 
+a b f b c c c c c c c c c c c c 
+a b b c c c c c c c c c c c c c 
+a b c c c c c c c c c c c c c c 
+a b c c c c c c c c c c c c c c 
+`
+    //% blockIdentity=images._tile
+    export const tile8 = img`
+f f f f f f f f f f f f f f f a 
+f f f f f f f f f f f f f f f a 
+f f f f f f f f f f f f f f f a 
+f f f f f f f f f f f f f f f a 
+b b b b b b b b b b b b b b b a 
+c c c c c c c c c c c c c c a a 
+f f f f c c f f f e c c f f a a 
+f f f f c c f e f f c c f e a a 
+f f f f c c e f f f c c e f a a 
+f f f f c c f f f f c c f f a a 
+b b b b c c b b b b c c b b a a 
+c c c c c c c c c c c c c c a a 
+c c c c c c c c c c c c c c a a 
+c c c c c c c c c c c c c c a a 
+c c c c c c c c c c c c c c c a 
+c c c c c c c c c c c c c c c a 
+`
+    //% blockIdentity=images._tile
+    export const tile9 = img`
+f f f f f f a a a f f f f f f f 
+f f f f f f a a a f f f f f f f 
+f f f f f f a a a f f f f f f f 
+f f f f f f a a a f f f f f f f 
+b b b b b b a a a b b b b b b b 
+c c c c c c a a a c c c c c c c 
+f f f e c c a a a c c c f f f e 
+f e f f c c e a e c c c f e f f 
+e f f f c c a e a c c c e f f f 
+f f f f c c a a a c c c f f f f 
+a b b b c c a a a c c c b b b b 
+c c c c c c e e e c c c c c c c 
+c c c c c c e e e c c c c c c c 
+c c c c c c e e e c c c c c c c 
+c c c c c c a a a c c c c c c c 
+c c c c c c a a a c c c c c c c 
+`
+    //% blockIdentity=images._tile
+    export const tile10 = img`
+d d d d d a a a a a d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d f a f d d d d d d d 
+d d d d d d a f a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+d d d d d d a a a d d d d d d d 
+`
+    //% blockIdentity=images._tile
+    export const tile11 = img`
+a d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+`
+    //% blockIdentity=images._tile
+    export const tile12 = img`
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 8 7 8 8 8 8 7 8 8 8 7 
+7 8 8 8 8 8 7 8 8 8 8 7 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 7 8 8 8 7 8 8 8 8 8 8 7 
+7 8 8 8 7 8 8 8 7 8 8 8 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 8 8 8 7 8 8 8 7 8 8 7 
+7 8 8 8 8 8 8 8 7 8 8 8 7 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 7 8 8 8 8 8 8 7 8 8 8 7 
+7 8 8 8 7 8 8 8 8 8 8 7 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 7 8 8 8 7 8 8 8 8 8 7 
+7 8 8 8 8 7 8 8 8 7 8 8 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -487,7 +582,7 @@ progressBar2 = sprites.create(img`
 
 
 tiles.setTilemap(tiles.createTilemap(
-            hex`1c00140002020202020202020202020202020202040808080e0303030303030302111111111111111111111102020202040808080e0303030303030302151314131313131314131302020202040808080e0303030303030302121212121212121212121202020202040808080e0303030303030302020202020202020202020202020202070808080e0303030303030302111111111111020202111111111111040808080e0303030303030302151413141313020202151413131314040808080e0303030303030302121212121212020202121212121212040808080e0303030303030302020202020202020202020202020202040808080e0303030303030311111111111111111111111102020202040808080e0303030303030315131413131314131313131302020202070808080e0303030303030312121212121212121212121202020202040808080e0303030303030302020202020202020202020202020202040808080e0303030303030302111111111111110211111111111102040808080e0303030303030302151413131413130213141313141302040808080e0303030303030302121212121212120212121212121202040808080e0303030303030302020202020202020202020202020202070808080e0303030303030302020202111111111111111102020202040808080e0303030303030302020202131314131314131302020202040808080e0303030303030302020202121212121212121202020202040808080e03030303030303`,
+            hex`1c001400020202020202020202020202020202021b0808080e03030303030303021911111111111811111111020202021b0808080e03030303030303021513141313131713141316020202021b0808080e03030303030303021212121212121212121212020202021b0808080e03030303030303020202020202020202020202020202021b0808080e03030303030303021911111111110202021911111111111b0808080e03030303030303021514131413160202021514131313161b0808080e03030303030303021212121212120202021212121212121b0808080e03030303030303020202020202020202020202020202021b0808080e03030303030303111111111118111111111111020202021b0808080e03030303030303131314131317141313131316020202021b0808080e03030303030303121212121212121212121212020202021b0808080e03030303030303020202020202020202020202020202021b0808080e03030303030303021911111111111102191111111111021b0808080e03030303030303021514131314131602131413131416021b0808080e03030303030303021212121212121202121212121212021b0808080e03030303030303020202020202020202020202020202021b0808080e03030303030303020202021911111111111111020202021b0808080e03030303030303020202021513141313141316020202021b0808080e03030303030303020202021212121212121212020202021b0808080e03030303030303`,
             img`
 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . 
 . 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . 
@@ -510,7 +605,7 @@ tiles.setTilemap(tiles.createTilemap(
 . . . . 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . 
 `,
-            [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7],
+            [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,sprites.builtin.coral2,myTiles.tile12],
             TileScale.Sixteen
         ))
 tagTarget = sprites.create(img`
@@ -560,5 +655,3 @@ game.onUpdate(function () {
         cancelTagging()
     }
 })
-
-moveTaggingSpot() 
