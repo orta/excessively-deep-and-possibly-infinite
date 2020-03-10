@@ -569,8 +569,7 @@ scene.onHitWall(SpriteKind.Enemy, function (sprite) {
     turnRandomly(sprite)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let dist = 0
-    dist2 = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
+    let dist = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
     if (dist < 20) {
         startTagging()
         tagger.setImage(img`

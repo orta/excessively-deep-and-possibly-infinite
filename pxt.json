@@ -1,5 +1,10 @@
 {
     "name": "excessively-deep-and-possibly-infinite",
+    "dependencies": {
+        "device": "*",
+        "palette": "*",
+        "color-coded-tilemap": "*"
+    },
     "files": [
         ".vscode/settings.json",
         ".vscode/tasks.json",
@@ -9,11 +14,10 @@
         "test.ts",
         "tsconfig.json"
     ],
-    "dependencies": {
-        "device": "*",
-        "palette": "*",
-        "color-coded-tilemap": "*"
-    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj",
     "palette": [
         "#000000",
         "#ff3333",
@@ -31,6 +35,5 @@
         "#65738c",
         "#7c94a1",
         "#a0b9ba"
-    ],
-    "preferredEditor": "blocksprj"
+    ]
 }
