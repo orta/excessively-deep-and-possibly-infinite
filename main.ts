@@ -288,6 +288,75 @@ a a a a a a a a a a a a a a a 8
 b b b b b b b b b b b b b b b 8 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
 `
+    //% blockIdentity=images._tile
+    export const tile17 = img`
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+b b b b b b b b b b b b b b b 8 
+8 a 8 a 8 a 8 a 8 a 8 a 8 a 8 a 
+`
+    //% blockIdentity=images._tile
+    export const tile18 = img`
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a a 
+a a a a a a a a a a a a a a a 8 
+b b b b b b b b b b b b b b b a 
+a 8 a 8 a 8 a 8 a 8 a 8 a 8 a 8 
+`
+    //% blockIdentity=images._tile
+    export const tile19 = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 2 2 2 2 . . . . . . 
+. . . . 2 2 . . . 2 2 . . . . . 
+. . . 2 . . . . . . . 2 . . . . 
+. . 2 . . 2 2 . . . . 2 . . . . 
+. . . . 2 2 . 2 2 2 . 2 . . . . 
+. . . . 2 . . . . 2 . . 2 . . . 
+. . . . 2 . . 2 . 2 . . 2 . . . 
+. . . . 2 . 2 2 2 2 . . 2 . . . 
+. . . . 2 . . . . . . . 2 . . . 
+. . . . . 2 2 . . . . 2 2 . . . 
+. . . . . . . 2 2 2 2 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+}
+function turnLeft (sprite: Sprite) {
+    if (sprite.vx == 0 && sprite.vy < 0) {
+        sprite.setVelocity(0 - enemySpeed, 0)
+    } else if (sprite.vx < 0 && sprite.vy == 0) {
+        sprite.setVelocity(0, enemySpeed)
+    } else if (sprite.vx == 0 && sprite.vy > 0) {
+        sprite.setVelocity(enemySpeed, 0)
+    } else {
+        sprite.setVelocity(0, 0 - enemySpeed)
+    }
+    setGuardSprite(guard)
 }
 function advanceProgressBar (frame: number) {
     progressBar2.setImage(progressBarFrames[frame])
@@ -299,6 +368,92 @@ function advanceProgressBar (frame: number) {
         } else {
             completeTagging()
         }
+    }
+}
+function setGuardSprite (sprite: Sprite) {
+    if (sprite.vx > 0) {
+        sprite.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 4 . . . . . . 
+. . . . . . 3 4 4 4 . . . . . . 
+. . . . . . 3 4 4 4 . . . . . . 
+. . . . . . . 3 3 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 3 3 4 4 . . . . . . 
+. . . . . . 3 3 4 4 . . . . . . 
+. . . . . . 3 3 4 4 . . . . . . 
+. . . . . . 3 3 4 4 . . . . . . 
+. . . . . . 3 3 4 4 . . . . . . 
+. . . . . . 3 3 4 4 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    } else if (sprite.vx < 0) {
+        sprite.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 4 4 4 3 . . . . . . 
+. . . . . . 4 4 4 3 . . . . . . 
+. . . . . . . 3 3 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 3 3 . . . . . . 
+. . . . . . 4 4 3 3 . . . . . . 
+. . . . . . 4 4 3 3 . . . . . . 
+. . . . . . 4 4 3 3 . . . . . . 
+. . . . . . 4 4 3 3 . . . . . . 
+. . . . . . 4 4 3 3 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    } else if (sprite.vy < 0) {
+        sprite.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . . 3 3 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 4 3 3 4 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    } else {
+        sprite.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    }
+}
+function turnRandomly (ghost: Sprite) {
+    if (Math.percentChance(50)) {
+        turnLeft(ghost)
+    } else {
+        turnRight(ghost)
     }
 }
 function startTagging () {
@@ -354,6 +509,32 @@ function cancelTagging () {
     clearTimeout(taggingTimeout);
 progressBar2.setFlag(SpriteFlag.Invisible, true)
 }
+function createAGuard () {
+    spawnPoints = tiles.getTilesByType(myTiles.tile17)
+    index = Math.randomRange(0, spawnPoints.length)
+    spawnPoint = spawnPoints[index]
+    guard = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 3 4 4 3 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Enemy)
+    tiles.placeOnTile(guard, spawnPoint)
+    turnRandomly(guard)
+    guard.vx = 40
+}
 function completeTagging () {
     cancelTagging()
     music.baDing.play()
@@ -379,14 +560,18 @@ function completeTagging () {
     Tag.x = tagger.x
     Tag.y = tagger.y - 20
     moveTaggingSpot()
+    createAGuard()
 }
 function moveTaggingSpot () {
     tiles.placeOnRandomTile(tagTarget, myTiles.tile4)
 }
+scene.onHitWall(SpriteKind.Enemy, function (sprite) {
+    turnRandomly(sprite)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    distX = Math.abs(tagger.x) - Math.abs(tagTarget.x)
-    distY = Math.abs(tagger.y) - Math.abs(tagTarget.y)
-    if (distX < 20 && distY < 20) {
+    let dist = 0
+    dist2 = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
+    if (dist < 20) {
         startTagging()
         tagger.setImage(img`
 . . . . . . . . . . . . . . . . 
@@ -408,6 +593,18 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 `)
     }
 })
+function turnRight (sprite: Sprite) {
+    if (sprite.vx == 0 && sprite.vy < 0) {
+        sprite.setVelocity(enemySpeed, 0)
+    } else if (sprite.vx < 0 && sprite.vy == 0) {
+        sprite.setVelocity(0, 0 - enemySpeed)
+    } else if (sprite.vx == 0 && sprite.vy > 0) {
+        sprite.setVelocity(0 - enemySpeed, 0)
+    } else {
+        sprite.setVelocity(0, enemySpeed)
+    }
+    setGuardSprite(guard)
+}
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     tagger.setImage(img`
 . . . . . . . . . . . . . . . . 
@@ -428,25 +625,9 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 `)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.TaggingSpot, function (sprite, otherSprite) {
-    otherSprite.setImage(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
-. 3 3 3 3 3 3 3 3 3 3 3 3 3 3 . 
-. 3 3 3 3 3 3 3 3 3 3 3 3 3 3 . 
-`)
+scene.onHitTile(SpriteKind.Enemy, 1, function (sprite) {
+    // There are specific tiles for changing direction
+    turnRandomly(sprite)
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     tagger.setImage(img`
@@ -471,18 +652,60 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     cancelTagging()
 })
-let distY = 0
-let distX = 0
+let dist2 = 0
 let Tag: Sprite = null
+let spawnPoint: tiles.Location = null
+let index = 0
+let spawnPoints: tiles.Location[] = []
 let isTagging = false
+let guard: Sprite = null
 let tagger: Sprite = null
 let tagTarget: Sprite = null
 let progressBar2: Sprite = null
 let progressBarFrames: Image[] = []
-let progressTimer = null
-let taggingTimeout = 0
-let isMoving = false
+let enemySpeed = 0
 let tagTile = null
+let isMoving = false
+let taggingTimeout = 0
+let progressTimer = null
+let distX = 0
+let distY = 0
+enemySpeed = 40
+tiles.setTilemap(tiles.createTilemap(
+            hex`28001c0008080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080808080808080808080808080808080808081b020202020202020202020202020202021b0808080e0303030303030308080808080808080808081b021911111111111811111111020220021b0808080e0303030303030308080808080808080808081b1e15131413131317131413161e1e1e1e1b0808080e0303030303030308080808080808080808081b1f12121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020220020202020221020202020202021b0808080e0303030303030308080808080808080808081b021911111111110202021911111111111b0808080e0303030303030308080808080808080808081b1f1514131413161e1e1e1514131313161b0808080e0303030303030308080808080808080808081b1f1212121212121f1f1f1212121212121b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020221020202022002021b0808080e0303030303030308080808080808080808081b111111111118111111111111020202021b0808080e0303030303030308080808080808080808081b1313141313171413131313161e1e1e1e1b0808080e0303030303030308080808080808080808081b1212121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b022002020202020221020202020202021b0808080e0303030303030308080808080808080808081b021911111111111102191111111111021b0808080e0303030303030308080808080808080808081b1e151413131413161e1314131314161e1b0808080e0303030303030308080808080808080808081b1f1212121212121202121212121212021b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020221020202020202021b0808080e0303030303030308080808080808080808081b022002021911111111111111020220021b0808080e0303030303030308080808080808080808081b1e1e1e1e15131413131413161e1e1e1e1b0808080e0303030303030308080808080808080808081b1f1f1f1f12121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020202020202020202021b080808080803030308080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080803031c08080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080803031c08080808080808080808080c0c0c0303030303030303030303030303030303030c0c0c0c0c0303030c0c0c0c0c0c0c0c0c0c0c03030303030303030303030303030303030303030303030303030303030303030303030303030303`,
+            img`
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . 2 2 2 2 2 2 . . . 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . 2 2 2 2 2 2 . . . 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . 2 2 2 2 2 2 2 . 2 2 2 2 2 2 . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . 2 2 2 2 2 2 2 . 2 2 2 2 2 2 . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+`,
+            [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,sprites.builtin.coral2,myTiles.tile12,sprites.castle.tilePath6,myTiles.tile13,myTiles.tile14,myTiles.tile16,myTiles.tile17,myTiles.tile18,myTiles.tile19],
+            TileScale.Sixteen
+        ))
 progressBarFrames = [img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -657,41 +880,6 @@ progressBarFrames = [img`
 progressBar2 = sprites.create(img`
 . 
 `, 0)
-tiles.setTilemap(tiles.createTilemap(
-            hex`28001c0008080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080808080808080808080808080808080808081b020202020202020202020202020202021b0808080e0303030303030308080808080808080808081b021911111111111811111111020202021b0808080e0303030303030308080808080808080808081b1e15131413131317131413161e1e1e1e1b0808080e0303030303030308080808080808080808081b1f12121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020202020202020202021b0808080e0303030303030308080808080808080808081b021911111111110202021911111111111b0808080e0303030303030308080808080808080808081b1f1514131413161e1e1e1514131313161b0808080e0303030303030308080808080808080808081b1f1212121212121f1f1f1212121212121b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020202020202020202021b0808080e0303030303030308080808080808080808081b111111111118111111111111020202021b0808080e0303030303030308080808080808080808081b1313141313171413131313161e1e1e1e1b0808080e0303030303030308080808080808080808081b1212121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020202020202020202021b0808080e0303030303030308080808080808080808081b021911111111111102191111111111021b0808080e0303030303030308080808080808080808081b1e151413131413161e1314131314161e1b0808080e0303030303030308080808080808080808081b1f1212121212121202121212121212021b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020202020202020202021b0808080e0303030303030308080808080808080808081b020202021911111111111111020202021b0808080e0303030303030308080808080808080808081b1e1e1e1e15131413131413161e1e1e1e1b0808080e0303030303030308080808080808080808081b1f1f1f1f12121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b020202020202020202020202020202021b080808080803030308080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080803031c08080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080803031c08080808080808080808080c0c0c0303030303030303030303030303030303030c0c0c0c0c0303030c0c0c0c0c0c0c0c0c0c0c03030303030303030303030303030303030303030303030303030303030303030303030303030303`,
-            img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . 2 2 2 2 2 2 . . . 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . 2 2 2 2 2 2 . . . 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . 2 2 2 2 2 2 2 . 2 2 2 2 2 2 . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . 2 2 2 2 2 2 2 . 2 2 2 2 2 2 . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-`,
-            [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,sprites.builtin.coral2,myTiles.tile12,sprites.castle.tilePath6,myTiles.tile13,myTiles.tile14,myTiles.tile16],
-            TileScale.Sixteen
-        ))
 tagTarget = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . 
@@ -737,5 +925,45 @@ controller.moveSprite(tagger)
 game.onUpdate(function () {
     if (controller.dx() != 0 || controller.dy() != 0) {
         cancelTagging()
+    }
+    dist2 = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
+    if (dist2 < 20) {
+        tagTarget.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 2 2 2 2 . . . . . . 
+. . . 2 2 2 . . . . 2 2 2 . . . 
+. 2 2 . . . . . . . . . . 2 2 . 
+2 . . . . . . . . . . . . . . 2 
+. 2 2 . . . . . . . . . . 2 2 . 
+. . . 2 2 2 . . . . 2 2 2 . . . 
+. . . . . . 2 2 2 2 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
+    } else {
+        tagTarget.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 1 1 1 1 . . . . . . 
+. . . 1 1 1 . . . . 1 1 1 . . . 
+. 1 1 . . . . . . . . . . 1 1 . 
+1 . . . . . . 1 1 . . . . . . 1 
+. 1 1 . . . . . . . . . . 1 1 . 
+. . . 1 1 1 . . . . 1 1 1 . . . 
+. . . . . . 1 1 1 1 . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
     }
 })
