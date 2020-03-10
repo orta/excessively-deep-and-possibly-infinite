@@ -11,7 +11,8 @@
     ],
     "dependencies": {
         "device": "*",
-        "palette": "*"
+        "palette": "*",
+        "color-coded-tilemap": "*"
     },
     "palette": [
         "#000000",
