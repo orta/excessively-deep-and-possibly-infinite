@@ -364,6 +364,101 @@ f f f f f f f f f f f f f f f f
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `
+    //% blockIdentity=images._tile
+    export const tile21 = img`
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 8 7 8 8 8 8 7 8 8 8 7 
+7 8 8 8 8 8 7 8 8 8 8 7 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 7 8 8 8 7 8 8 8 8 8 8 7 
+7 8 8 8 7 8 8 8 7 8 8 8 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 8 8 8 7 8 8 8 7 8 8 7 
+7 8 8 8 8 8 8 8 7 8 8 8 7 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 7 8 8 8 8 8 8 7 8 8 8 7 
+7 8 8 8 7 8 8 8 8 8 8 7 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 7 8 8 8 7 8 8 8 8 8 7 
+3 8 3 3 8 3 3 3 3 7 8 3 3 8 8 7 
+3 3 7 3 3 3 3 7 7 7 3 3 7 3 3 7 
+`
+    //% blockIdentity=images._tile
+    export const tile22 = img`
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a 5 a 8 
+a a a a a a a a a a a a 5 a 5 8 
+a a a a a a a a a a a a a 5 a 4 
+a a a a a a a a a a a a a a 4 8 
+a a a a a a a a a a a a a 5 a 4 
+a a a a a a a a a a a a a a 4 8 
+a a a a a a a a a a a a a 5 a 4 
+a a a a a a a a a a a a a a 4 8 
+a a a a a a a a a a a a a 5 a 4 
+a a a a a a a a a a a a 5 a 5 8 
+a a a a a a a a a a a a a 5 a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+b b b b b b b b b b b b b b b 8 
+8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
+`
+    //% blockIdentity=images._tile
+    export const tile23 = img`
+a a a a a a a a a a a a a a a 8 
+a a 5 a a a a a a a a a a a a 8 
+a 4 a a a a a a a a a a a a a 8 
+4 a 5 a a a a a a a a a a a a 8 
+a 4 a a a a a a a a a a a a a 8 
+4 a 5 a a a a a a a a a a a a 8 
+a 4 a a a a a a a a a a a a a 8 
+4 a 5 a a a a a a a a a a a a 8 
+a 4 a a a a a a a a a a a a a 8 
+4 a 5 a a a a a a a a a a a a 8 
+a 4 a a a a a a a a a a a a a 8 
+a a 5 a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+a a a a a a a a a a a a a a a 8 
+b b b b b b b b b b b b b b b 8 
+8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
+`
+    //% blockIdentity=images._tile
+    export const tile24 = img`
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 d d d d d d d d d d d d d d d 
+7 d f f f f f f f f f f f f f f 
+7 d f 9 9 9 9 9 f f f f f f f f 
+7 d f f f 9 f f f f f f f f f f 
+7 d f f f 9 f 9 9 f f 9 9 f f 9 
+7 d f f f 9 f 9 f f 9 f 9 f f 9 
+7 d f f f 9 f 9 f f 9 f 9 f f 9 
+7 d f f f 9 f 9 f f 9 9 9 9 f 9 
+7 d f f f f f f f f f f f f f f 
+7 d d d d d d d d d d d d d d d 
+7 8 8 8 7 8 8 8 8 8 8 7 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 7 8 8 8 7 8 8 8 8 8 7 
+3 8 3 3 8 3 3 3 3 7 8 3 3 8 8 7 
+3 3 7 3 3 3 3 7 7 7 3 3 7 3 3 7 
+`
+    //% blockIdentity=images._tile
+    export const tile25 = img`
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+d d d d d d d d d d d d d 8 8 7 
+f f f f f f f f f f f f d 8 8 7 
+f f f f f f f f f f f f d 7 7 7 
+f f f f f f f f f f f f d 8 8 7 
+f 9 9 9 f 9 9 9 f f f f d 8 8 7 
+f 9 f 9 f 9 f f f f f f d 7 7 7 
+f 9 f 9 f f 9 9 f f f f d 8 8 7 
+f 9 f 9 f 9 9 9 f f f f d 8 8 7 
+f f f f f f f f f f f f d 7 7 7 
+d d d d d d d d d d d d d 8 8 7 
+7 8 8 8 7 8 8 8 8 8 8 7 8 8 8 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 8 8 8 8 7 8 8 8 7 8 8 8 8 8 7 
+3 8 3 3 8 3 3 3 3 7 8 3 3 8 8 7 
+3 3 7 3 3 3 3 7 7 7 3 3 7 3 3 7 
+`
 }
 function turnLeft (sprite: Sprite) {
     if (sprite.vx == 0 && sprite.vy < 0) {
@@ -562,7 +657,7 @@ function completeTagging () {
     info.changeScoreBy(1)
     Tag = sprites.create(tagSprite, SpriteKind.Food)
     Tag.x = tagger.x
-    Tag.y = tagger.y - 20
+    Tag.y = tagger.y - 14
     moveTaggingSpot()
     createAGuard()
 }
@@ -628,6 +723,12 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 `)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.TaggingSpot, function (sprite, otherSprite) {
+    if (hasToldToHoldAToTag === 0) {
+        hasToldToHoldAToTag = 1
+    	tagger.say("Hold A to start tagging", 2,5 )
+    }
+})
 scene.onHitTile(SpriteKind.Enemy, 1, function (sprite) {
     // There are specific tiles for changing direction
     turnRandomly(sprite)
@@ -670,15 +771,17 @@ let progressBar2: Sprite = null
 let tags: Image[] = []
 let progressBarFrames: Image[] = []
 let enemySpeed = 0
-let tagTile = null
-let isMoving = false
-let taggingTimeout = 0
-let progressTimer = null
-let distX = 0
+let hasToldToHoldAToTag = 0
 let distY = 0
+let distX = 0
+let progressTimer = null
+hasToldToHoldAToTag = 0
+let taggingTimeout = 0
+let isMoving = false
+let tagTile = null
 enemySpeed = 40
 tiles.setTilemap(tiles.createTilemap(
-            hex`28001c0008080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080808080808080808080808080808080808081b020202020202020202020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b021911111111111811111111020220021b0808080d0f0f0f0f0f0f0f08080808080808080808081b1e15131413131317131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020220020202020221020202020202021b080808090303030303032408080808080808080808081b021911111111110202021911111111111b0808080d0f0f0f0f0f0f2508080808080808080808081b1f1514131413161e1e1e1514131313161b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1212121212121f1f1f1212121212121b232323232323232323232323232323232323230808081b020202020202020221020202022002021b080808090303030303032408080808080808080808081b111111111118111111111111020202021b0808080d0f0f0f0f0f0f2508080808080808080808081b1313141313171413131313161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1212121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b022002020202020221020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b021911111111111102191111111111021b0808080d0f0f0f0f0f0f2508080808080808080808081b1e151413131413161e1314131314161e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212021212121212121f1b232323232323232323232323232323232323230808081b020202020202020221020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b022002021911111111111111020220021b0808080d0f0f0f0f0f0f2508080808080808080808081b1e1e1e1e15131413131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1f1f1f12121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020202020202020202020202020202021b0808080808090c2408080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b08080808080e031c08080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b08080808080e031c08080808080808080808080c0c0c0303030303030303030303030303030303030c0c0c0c0c0303030c0c0c0c0c0c0c0c0c0c0c03030303030303030303030303030303030303030303030303030303030303030303030303030303`,
+            hex`28001c0008080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080808080808080808080808080808080808081b020202020202020202020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b281911111111111811111111020220271b0808080d0f0f0f0f0f0f0f08080808080808080808081b1e15131413131317131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020220020202020221020202020202021b080808090303030303032408080808080808080808081b021911111111110202021911111111111b0808080d0f0f0f0f0f0f2508080808080808080808081b1f1514131413161e1e1e1514131313161b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1212121212121f1f1f1212121212121b232323232323232323232323232323232323230808081b280202020202020221020202022002271b080808090303030303032408080808080808080808081b111111111118111111111111020202021b0808080d0f0f0f0f0f0f2508080808080808080808081b1313141313171413131313161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1212121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b022002020202020221020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b021911111111111102191111111111021b0808080d0f0f0f0f0f0f2508080808080808080808081b1e151413131413161e1314131314161e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212021212121212121f1b232323232323232323232323232323232323230808081b280202020202020221020202020202271b080808090c0c0c0c0c0c2408080808080808080808081b022002021911111111111111020220021b0808080d0f0f0f0f0f0f2508080808080808080808081b1e1e1e1e15131413131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1f1f1f12121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020202020202020202020202020202021b0808080808090c2408080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b021b1b1b1b1b08080808080e031c0808080808080808080808080808262626262626262626262626022626292a2608080808080e031c08080808080808080808080c0c0c0303030303030303030303030303030303030c0c0c0c0c0303030c0c0c0c0c0c0c0c0c0c0c03030303030303030303030303030303030303030303030303030303030303030303030303030303`,
             img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -704,12 +807,12 @@ tiles.setTilemap(tiles.createTilemap(
 . . . 2 . . . . 2 2 2 2 2 2 2 2 . . . . 2 . . . . . . . . . . . . . . . . . . . 
 . . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
 . . . 2 . . . . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 2 2 . 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 2 2 . 2 2 2 2 2 . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `,
-            [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,sprites.builtin.coral2,myTiles.tile12,sprites.castle.tilePath6,myTiles.tile13,myTiles.tile14,myTiles.tile16,myTiles.tile17,myTiles.tile18,myTiles.tile19,myTiles.tile20,sprites.castle.tilePath3,sprites.castle.tilePath9],
+            [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,sprites.builtin.coral2,myTiles.tile12,sprites.castle.tilePath6,myTiles.tile13,myTiles.tile14,myTiles.tile16,myTiles.tile17,myTiles.tile18,myTiles.tile19,myTiles.tile20,sprites.castle.tilePath3,sprites.castle.tilePath9,myTiles.tile21,myTiles.tile22,myTiles.tile23,myTiles.tile24,myTiles.tile25],
             TileScale.Sixteen
         ))
 progressBarFrames = [img`
@@ -1077,6 +1180,8 @@ tagger = sprites.create(img`
 `, SpriteKind.Player)
 scene.cameraFollowSprite(tagger)
 controller.moveSprite(tagger)
+tagger.setPosition(327, 431)
+tagTarget.setPosition(246, 367)
 game.onUpdate(function () {
     if (controller.dx() != 0 || controller.dy() != 0) {
         cancelTagging()
