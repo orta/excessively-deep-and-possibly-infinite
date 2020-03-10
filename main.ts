@@ -660,6 +660,9 @@ function completeTagging () {
     Tag.y = tagger.y - 14
     moveTaggingSpot()
     createAGuard()
+    if (info.score() == 5) {
+        tagger.say("I should consider leaving before I get caught", 5000, 8)
+    }
 }
 function moveTaggingSpot () {
     tiles.placeOnRandomTile(tagTarget, myTiles.tile4)
@@ -676,8 +679,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . 9 9 9 9 . . . . . . . 
-. . . . . 9 9 9 9 . . . . . . . 
-. . . . . 9 9 9 9 . . . . . . . 
+. . . 2 . 9 9 9 9 . 2 . . . . . 
+. . 2 . . 9 9 9 9 . . 2 . . . . 
 . . . 9 . 9 9 9 9 . 9 . . . . . 
 . . . . 9 . . . . 9 . . . . . . 
 . . . . . 9 9 9 9 . . . . . . . 
@@ -714,7 +717,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . 9 9 9 9 . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . 9 9 9 9 . . . . . . . 
-. . . . . 9 9 9 3 . . . . . . . 
+. . . . . 9 9 9 9 . . . . . . . 
 . . . . . 9 9 9 9 . . . . . . . 
 . . . . . 9 9 9 9 . . . . . . . 
 . . . . . 9 9 9 9 . . . . . . . 
@@ -724,9 +727,9 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 `)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.TaggingSpot, function (sprite, otherSprite) {
-    if (hasToldToHoldAToTag === 0) {
+    if (hasToldToHoldAToTag == 0) {
         hasToldToHoldAToTag = 1
-    	tagger.say("Hold A to start tagging", 2,5 )
+        sprite.say("Hold \"A\" to start tagging", 3000, 8)
     }
 })
 scene.onHitTile(SpriteKind.Enemy, 1, function (sprite) {
@@ -756,6 +759,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     cancelTagging()
 })
+let isExiting = false
 let dist2 = 0
 let dist = 0
 let Tag: Sprite = null
@@ -765,20 +769,20 @@ let index = 0
 let spawnPoints: tiles.Location[] = []
 let isTagging = false
 let guard: Sprite = null
-let tagger: Sprite = null
 let tagTarget: Sprite = null
 let progressBar2: Sprite = null
 let tags: Image[] = []
 let progressBarFrames: Image[] = []
 let enemySpeed = 0
 let hasToldToHoldAToTag = 0
+let tagger: Sprite = null
 let distY = 0
 let distX = 0
 let progressTimer = null
-hasToldToHoldAToTag = 0
 let taggingTimeout = 0
 let isMoving = false
 let tagTile = null
+hasToldToHoldAToTag = 0
 enemySpeed = 40
 tiles.setTilemap(tiles.createTilemap(
             hex`28001c0008080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b080808080808080808080808080808080808080808081b020202020202020202020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b281911111111111811111111020220271b0808080d0f0f0f0f0f0f0f08080808080808080808081b1e15131413131317131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020220020202020221020202020202021b080808090303030303032408080808080808080808081b021911111111110202021911111111111b0808080d0f0f0f0f0f0f2508080808080808080808081b1f1514131413161e1e1e1514131313161b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1212121212121f1f1f1212121212121b232323232323232323232323232323232323230808081b280202020202020221020202022002271b080808090303030303032408080808080808080808081b111111111118111111111111020202021b0808080d0f0f0f0f0f0f2508080808080808080808081b1313141313171413131313161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1212121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b022002020202020221020202020202021b080808090c0c0c0c0c0c2408080808080808080808081b021911111111111102191111111111021b0808080d0f0f0f0f0f0f2508080808080808080808081b1e151413131413161e1314131314161e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212021212121212121f1b232323232323232323232323232323232323230808081b280202020202020221020202020202271b080808090c0c0c0c0c0c2408080808080808080808081b022002021911111111111111020220021b0808080d0f0f0f0f0f0f2508080808080808080808081b1e1e1e1e15131413131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1f1f1f12121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020202020202020202020202020202021b0808080808090c2408080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b021b1b1b1b1b08080808080e031c0808080808080808080808080808262626262626262626262626022626292a2608080808080e031c08080808080808080808080c0c0c0303030303030303030303030303030303030c0c0c0c0c0303030c0c0c0c0c0c0c0c0c0c0c03030303030303030303030303030303030303030303030303030303030303030303030303030303`,
@@ -1225,5 +1229,13 @@ game.onUpdate(function () {
 . . . . . . 1 1 1 1 . . . . . . 
 . . . . . . . . . . . . . . . . 
 `)
+    }
+})
+game.onUpdateInterval(500, function () {
+    isExiting = tagger.x < 30 || tagger.x > 350
+    if (info.score() > 4 && isExiting) {
+        console.log("Done")
+        game.winEffect
+game.over(false)
     }
 })
