@@ -471,7 +471,7 @@ function turnLeft (sprite: Sprite) {
     } else {
         sprite.setVelocity(0, 0 - enemySpeed)
     }
-    setGuardSprite(guard)
+    setGuardSprite(sprite)
 }
 function advanceProgressBar (frame: number) {
     progressBar2.setImage(progressBarFrames[frame])
@@ -628,7 +628,7 @@ function createAGuard () {
     spawnPoints = tiles.getTilesByType(myTiles.tile17)
     index = Math.randomRange(0, spawnPoints.length - 1)
     spawnPoint = spawnPoints[index]
-    guard = sprites.create(img`
+    const guard = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . 3 3 3 3 . . . . . .
@@ -706,7 +706,7 @@ function turnRight (sprite: Sprite) {
     } else {
         sprite.setVelocity(0, enemySpeed)
     }
-    setGuardSprite(guard)
+    setGuardSprite(sprite)
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     tagger.setImage(img`
@@ -770,7 +770,6 @@ let spawnPoint: tiles.Location = null
 let index = 0
 let spawnPoints: tiles.Location[] = []
 let isTagging = false
-let guard: Sprite = null
 let tagTarget: Sprite = null
 let progressBar2: Sprite = null
 let tags: Image[] = []
