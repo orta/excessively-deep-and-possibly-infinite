@@ -3,7 +3,8 @@
     "dependencies": {
         "device": "*",
         "palette": "*",
-        "color-coded-tilemap": "*"
+        "color-coded-tilemap": "*",
+        "animation": "*"
     },
     "files": [
         ".vscode/settings.json",

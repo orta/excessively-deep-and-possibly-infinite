@@ -726,15 +726,33 @@ function completeTagging () {
     moveTaggingSpot()
     createAGuard()
     createAGuard()
+    if (info.score() == 1 && info.highScore() < 5) {
+        tagger.say("To the next spot!", 2000, 8)
+    }
     if (info.score() == 5 && info.highScore() < 5) {
-        tagger.say("I should consider leaving before I get caught", 5000, 8)
+        tagger.say("I might leav before I get caught", 5000, 8)
 setTimeout(function () {
-            tagger.say("But... I think I can tag some more trains!", 5000, 8)
+            tagger.say("but I can still tag some more trains!", 5000, 8)
         }, 5000)
     }
 }
 function moveTaggingSpot () {
-    tiles.placeOnRandomTile(tagTarget, myTiles.tile4)
+    // For the first time, try keep it on screen to show
+    // the target moving
+    if (info.score() == 1) {
+        spawnTiles = tiles.getTilesByType(myTiles.tile4)
+        while (true) {
+            index = Math.randomRange(0, spawnTiles.length - 1)
+            spawnPoint = spawnTiles[index]
+            dist = Math.abs(tagger.x - spawnPoint.x) + Math.abs(tagger.y - spawnPoint.y)
+            if (dist < 100) {
+                break;
+            }
+        }
+        tiles.placeOnTile(tagTarget, spawnPoint)
+    } else {
+        tiles.placeOnRandomTile(tagTarget, myTiles.tile4)
+    }
 }
 scene.onHitWall(SpriteKind.Enemy, function (sprite) {
     turnRandomly(sprite)
@@ -798,7 +816,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.TaggingSpot, function (sprite, otherSprite) {
     if (hasToldToHoldAToTag == 0) {
         hasToldToHoldAToTag = 1
-        sprite.say("Hold \"A\" to start tagging", 3000, 8)
+        sprite.say("Hold \"A\" to tag", 1500, 8)
     }
 })
 function youGotSpotted () {
@@ -833,8 +851,10 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
 })
 let isExiting = false
 let dist2 = 0
+let spawnTiles: tiles.Location[] = []
 let Tag: Sprite = null
 let tagSprite: Image = null
+let dist = 0
 let index = 0
 let spawnPoints: tiles.Location[] = []
 let isTagging = false
@@ -854,10 +874,7 @@ let tagger: Sprite = null
 let guard2 = null
 let spawnPoint: tiles.Location = null
 let list: number[] = []
-let dist = 0
 let guard: Sprite = null
-hasToldToHoldAToTag = 0
-enemySpeed = 40
 tiles.setTilemap(tiles.createTilemap(
             hex`28001c00080b080808080b080808080808080808080808080808080808080b080808080808080808080808080808081b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b08080808080808080808080808080b080808080808081b2b2b2b2c2d2b2b2b2c2d2b2b2b2b2b2b1b0808080808080808080808080808080808080808080b1b020202020202020202020202020202021b080808090c0c0c0c0c0c24080808080b0808080808081b281911111111111811111111020220271b0808080d0f0f0f0f0f0f0f0808080808080808080b081b1e15131413131317131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212121212121f1f1f1f1b232323232323232323232323232323232323230b08081b020220020202020221020202020202021b0808080903030303030324080808080b0808080808081b021911111111110202021911111111111b0808080d0f0f0f0f0f0f2508080808080808080808081b1f1514131413161e1e1e1514131313161b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1212121212121f1f1f1212121212121b23232323232323232323232323232323232323080b081b280202020202020221020202022002271b080808090303030303032408080808080808080808081b111111111118111111111111020202021b080b080d0f0f0f0f0f0f2508080b08080808080808081b1313141313171413131313161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d08080b1b1212121212121212121212121f1f1f1f1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b022002020202020221020202020202021b08080b090c0c0c0c0c0c2408080b08080808080808081b021911111111111102191111111111021b0808080d0f0f0f0f0f0f25080808080b0808080b08081b1e151413131413161e1314131314161e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f12121212121212021212121212121f1b232323232323232323232323232323232323230b08081b280202020202020221020202020202271b080808090c0c0c0c0c0c240808080808080808080b081b022002021911111111111111020220021b0808080d0f0f0f0f0f0f2508080b080808080808080b1b1e1e1e1e15131413131413161e1e1e1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d0808081b1f1f1f1f12121212121212121f1f1f1f1b232323232323232323232323232323232323230808081b020202020202020202020202020202021b0808080808090c2408080808080808080b08080a08081b1b1b1b1b1b1b1b1b1b1b1b021b1b1b1b1b080b080b080e031c080b08080808080808080808080b262626262626262626262626022626292a2608080808080e031c080808080b0808080808080c0c0c0303030303030303030303030303030303030c0c0c0c0c0303030c0c0c0c0c0c0c0c0c0c0c03030303030303030303030303030303030303030303030303030303030303030303030303030303`,
             img`
@@ -893,6 +910,8 @@ tiles.setTilemap(tiles.createTilemap(
             [myTiles.tile0,sprites.builtin.forestTiles23,myTiles.tile1,sprites.castle.tilePath5,sprites.builtin.brick,sprites.vehicle.roadVertical,sprites.vehicle.roadHorizontal,sprites.dungeon.doorOpenNorth,sprites.castle.tileGrass1,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath8,sprites.builtin.forestTiles24,myTiles.tile3,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,sprites.builtin.coral2,myTiles.tile12,sprites.castle.tilePath6,myTiles.tile13,myTiles.tile14,myTiles.tile16,myTiles.tile17,myTiles.tile18,myTiles.tile19,myTiles.tile20,sprites.castle.tilePath3,sprites.castle.tilePath9,myTiles.tile21,myTiles.tile22,myTiles.tile23,myTiles.tile24,myTiles.tile25,myTiles.tile26,myTiles.tile27,myTiles.tile28],
             TileScale.Sixteen
         ))
+hasToldToHoldAToTag = 0
+enemySpeed = 40
 progressBarFrames = [img`
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
