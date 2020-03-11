@@ -14,12 +14,13 @@
         "main.ts",
         "test.ts",
         "tsconfig.json",
-        "hitbox.ts"
+        "hitbox.ts",
+        "music.ts"
     ],
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "palette": [
         "#000000",
         "#ff3333",

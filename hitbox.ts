@@ -185,7 +185,10 @@ namespace HitBox {
             this.sprite.setPosition(this.target.x, this.target.y);
 
             if(isPlayerHit) {
+                GameMusic.stopGameMusic();
+                music.stopAllSounds()
                 info.changeLifeBy(-1);
+
             }
             
         }
