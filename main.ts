@@ -629,6 +629,7 @@ function turnRandomly (ghost: Sprite) {
     }
 }
 function startTagging () {
+    SoundEffects.playTaggingSoundEffect()
     isTagging = true
     progressBar2.setFlag(SpriteFlag.Invisible, false)
     progressBar2.x = tagger.x

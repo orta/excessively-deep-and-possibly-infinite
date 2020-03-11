@@ -15,7 +15,8 @@
         "test.ts",
         "tsconfig.json",
         "hitbox.ts",
-        "music.ts"
+        "music.ts",
+        "sound.ts"
     ],
     "supportedTargets": [
         "arcade"
