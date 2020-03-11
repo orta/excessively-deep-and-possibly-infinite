@@ -28,7 +28,7 @@ namespace HitBox {
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
     `, SpriteKind.HitBox)
-    hitTestDebug.setFlag(SpriteFlag.Invisible, false);
+    hitTestDebug.setFlag(SpriteFlag.Invisible, !DEBUG);
     hitTestDebug.setFlag(SpriteFlag.Ghost, true);
 
     const hitboxImageBase: Image = img`
