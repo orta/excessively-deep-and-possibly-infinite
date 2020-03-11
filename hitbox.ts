@@ -2,7 +2,7 @@
 
 namespace HitBox {
 
-    const DEBUG = true;
+    const DEBUG = false;
 
     const width = 64;
     const height = 64;
