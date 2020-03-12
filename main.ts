@@ -705,7 +705,7 @@ function moveTaggingSpot () {
             index = Math.randomRange(0, spawnTiles.length - 1)
             spawnPoint = spawnTiles[index]
             dist = Math.abs(tagger.x - spawnPoint.x) + Math.abs(tagger.y - spawnPoint.y)
-            if (dist < 100) {
+            if (dist < 100 && dist > 20) {
                 break;
             }
         }
