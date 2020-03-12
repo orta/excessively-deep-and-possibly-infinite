@@ -630,52 +630,12 @@ function turnRandomly (ghost: Sprite) {
 }
 function startTagging () {
     SoundEffects.playTaggingSoundEffect()
-isTagging = true
+    isTagging = true
     progressBar2.setFlag(SpriteFlag.Invisible, false)
     progressBar2.x = tagger.x
     progressBar2.y = tagger.y - 10
     advanceProgressBar(0)
 }
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    tagger.setImage(img`
-        . . . . . . . . . . . . . . . .
-        . . . . . 4 . 4 . . . . . . . .
-        . . . . . 4 5 4 4 4 . . . . . .
-        . . . . . 9 9 9 d 4 . . . . . .
-        . . . . . 9 d d d 5 4 . . . . .
-        . . . . . d d d d 5 4 . . . . .
-        . . . . . d d d d 4 4 . . . . .
-        . . . . . . 4 5 4 5 4 . . . . .
-        . . . . . c b c b 5 4 . . . . .
-        . . . . . c b c b 4 . . . . . .
-        . . . . . c b c b 4 4 . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . 6 7 6 7 . . . . . . .
-        . . . . . 6 7 6 7 . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-    `)
-})
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    tagger.setImage(img`
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . 5 . . . . .
-        . . . . 4 4 5 5 4 5 4 . . . . .
-        . . . . 4 9 9 9 9 4 . . . . . .
-        . . . 4 4 d d d 9 4 . . . . . .
-        . . . . 5 d d d d 4 . . . . . .
-        . . . . 4 d d d d 4 . . . . . .
-        . . . 4 5 4 4 4 4 5 . . . . . .
-        . . . . 4 b c c c 4 4 . . . . .
-        . . . 4 . b c c c . . . . . . .
-        . . . . . b c c c . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . 7 6 6 7 . . . . . . .
-        . . . . . 7 6 6 6 . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-    `)
-})
 function cancelTagging () {
     isTagging = false
     clearTimeout(taggingTimeout);
@@ -761,24 +721,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     dist = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
     if (dist < 20) {
         startTagging()
-        tagger.setImage(img`
-            . . . . . 2 . . . . . . . . . .
-            . 2 . . . . . . 2 . 5 . . . . .
-            . . . 2 5 4 5 5 4 5 4 . . . . .
-            . . . . 4 5 4 5 5 4 . . 2 . . .
-            . . . 4 4 5 5 4 5 4 4 . . . . .
-            . . 2 . 4 4 5 5 4 4 . . . 2 . .
-            . . . 2 4 5 4 4 5 4 . . . . . .
-            . . . . 5 4 4 5 4 5 . 2 . . . .
-            . . . 4 4 b b b c 4 4 . . . . .
-            . . 2 . . b b b c . . 4 . . . .
-            . . . . . b b b c . . . . . . .
-            . . . . . . . . . . . . . . . .
-            . . . . . 7 7 7 6 . . . . . . .
-            . . . . . 7 7 7 6 . . . . . . .
-            . . . . . . . . . . . . . . . .
-            . . . . . . . . . . . . . . . .
-        `)
+        tagger.setImage(Tagger.taggerTagging)
     }
 })
 function turnRight (sprite: Sprite) {
@@ -793,26 +736,7 @@ function turnRight (sprite: Sprite) {
     }
     setGuardSprite(sprite)
 }
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    tagger.setImage(img`
-        . . . . . . . . . . . . . . . .
-        . . . . . . . 5 . 5 . . . . . .
-        . . . . 5 4 5 5 4 . . . . . . .
-        . . . . 4 9 9 9 d . . . . . . .
-        . . . 4 4 9 d d d . . . . . . .
-        . . . . 5 d d d d . . . . . . .
-        . . . 5 4 d d d d . . . . . . .
-        . . . 4 5 4 4 . . . . . . . . .
-        . . . 4 5 b c b c . . . . . . .
-        . . . 4 4 b c b c . . . . . . .
-        . . 4 . . b c b c . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . 7 6 7 6 . . . . . . .
-        . . . . . 7 6 7 6 . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-    `)
-})
+
 sprites.onOverlap(SpriteKind.Player, SpriteKind.TaggingSpot, function (sprite, otherSprite) {
     if (hasToldToHoldAToTag == 0) {
         hasToldToHoldAToTag = 1
@@ -827,26 +751,7 @@ scene.onHitTile(SpriteKind.Enemy, 1, function (sprite) {
     // There are specific tiles for changing direction
     turnRandomly(sprite)
 })
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    tagger.setImage(img`
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . 5 . . . . .
-        . . . . 5 4 5 5 4 5 4 . . . . .
-        . . . . 4 5 4 5 5 4 . . . . . .
-        . . . 4 4 5 5 4 5 4 4 . . . . .
-        . . . . 4 4 5 5 4 4 . . . . . .
-        . . . . 4 5 4 4 5 4 . . . . . .
-        . . . . 5 4 4 5 4 5 . . . . . .
-        . . . 4 4 b b b c 4 4 . . . . .
-        . . . . . b b b c . . 4 . . . .
-        . . . . . b b b c . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . 7 7 7 6 . . . . . . .
-        . . . . . 7 7 7 6 . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-    `)
-})
+
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     cancelTagging()
 })
@@ -1665,35 +1570,19 @@ tagTarget = sprites.create(img`
     . . . . . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . . . . . .
 `, SpriteKind.TaggingSpot)
-tagger = sprites.create(img`
-    . . . . . . . . . . . . . . . .
-    . . . . . 4 . 4 . . . . . . . .
-    . . . . . 4 5 4 4 4 . . . . . .
-    . . . . . 9 9 9 d 4 . . . . . .
-    . . . . . 9 d d d 5 4 . . . . .
-    . . . . . d d d d 5 4 . . . . .
-    . . . . . d d d d 4 4 . . . . .
-    . . . . . . 4 5 4 5 4 . . . . .
-    . . . . . c b c b 5 4 . . . . .
-    . . . . . c b c b 4 . . . . . .
-    . . . . . c b c b 4 4 . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . 6 7 6 7 . . . . . . .
-    . . . . . 6 7 6 7 . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-`, SpriteKind.Player)
+tagger = sprites.create(Tagger.taggerLeft, SpriteKind.Player)
 tagger.say("Get in, tag, and get out", 3000, 8)
 scene.cameraFollowSprite(tagger)
-controller.moveSprite(tagger)
+controller.moveSprite(tagger, 60, 60)
 tagger.setPosition(327, 431)
 tagTarget.setPosition(246, 364)
 createAGuard()
 game.setDialogTextColor(9)
 GameMusic.startGameMusic();
 game.onUpdate(function () {
+    Tagger.update();
     HitBox.update();
-dist2 = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
+    dist2 = Math.abs(tagger.x - tagTarget.x) + Math.abs(tagger.y - tagTarget.y)
     // Allow walking and tagging
     if (dist2 > 14 && (controller.dx() != 0 || controller.dy() != 0)) {
         cancelTagging()

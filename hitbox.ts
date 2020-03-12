@@ -157,9 +157,6 @@ namespace HitBox {
                 getCurrentHitbox().rotated(this.rotation) :
                 getCurrentHitbox();
 
-
-
-
             let cone = triangle(
                 { x: this.target.x + (this.target.width / 2), y: this.target.y + (this.target.height / 2) },
                 { x: this.target.x + (this.target.width / 2) - (HIT_CONE_WIDTH / 2), y: this.target.y + (this.target.height / 2) - HIT_CONE_LENGTH  },
@@ -168,7 +165,8 @@ namespace HitBox {
 
             let rotatedCone = rotatePoly(cone, cone.edges[0].p1, this.rotation);
             
-            const isPlayerHit = polyIntersect(rotatedCone, getRect(tagger));
+            const playerRect = getRect(tagger);
+            const isPlayerHit = polyIntersect(rotatedCone, playerRect);
 
             if(DEBUG) {
                 let center = { x: cone.edges[0].p1.x - (hitboxImage.width / 2), y: cone.edges[0].p1.y - (hitboxImage.height / 2) };
@@ -189,8 +187,7 @@ namespace HitBox {
                 music.stopAllSounds()
                 info.changeLifeBy(-1);
 
-            }
-            
+            }       
         }
     }
 
@@ -227,12 +224,13 @@ namespace HitBox {
     }
 
     function getRect(sprite: Sprite): Polygon {
+        const offset = 4;
         return {
             edges: [
-                { p1: { x: sprite.x, y: sprite.y }, p2: { x: sprite.x + sprite.width, y: sprite.y } },
-                { p1: { x: sprite.x + sprite.width, y: sprite.y }, p2: { x: sprite.x + sprite.width, y: sprite.y + sprite.height } },
-                { p1: { x: sprite.x + sprite.width, y: sprite.y + sprite.height }, p2: { x: sprite.x, y: sprite.y + sprite.height } },
-                { p1: { x: sprite.x , y: sprite.y + sprite.height }, p2: { x: sprite.x, y: sprite.y  } },
+                { p1: { x: sprite.x + offset, y: sprite.y }, p2: { x: sprite.x + offset + sprite.width, y: sprite.y } },
+                { p1: { x: sprite.x + offset + sprite.width, y: sprite.y }, p2: { x: sprite.x + offset + sprite.width, y: sprite.y + sprite.height } },
+                { p1: { x: sprite.x + offset + sprite.width, y: sprite.y + sprite.height }, p2: { x: sprite.x + offset, y: sprite.y + sprite.height } },
+                { p1: { x: sprite.x + offset, y: sprite.y + sprite.height }, p2: { x: sprite.x + offset, y: sprite.y  } },
             ]
         }
     }
