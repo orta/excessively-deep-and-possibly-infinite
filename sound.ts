@@ -6,6 +6,20 @@ namespace SoundEffects {
 
     export function playTaggingSoundEffect() {
         blub.play();
+        setTimeout(function () {
+            blub.play();
+            setTimeout(function () {
+                blub.play();
+                setTimeout(function () {
+                    blub.play();
+                    setTimeout(function () {
+                        blub.play();
+                        setTimeout(function () {
+                            blub.play();
+                        }, 300)
+                    }, 300)
+                }, 300)
+            }, 300)
+        }, 300)
     }    
-
 }
